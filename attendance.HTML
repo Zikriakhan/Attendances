@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #1b551d;
+      color: white;
+    }
+  </style>
+  <body>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" /><br /><br />
+      <label for="id">Interns ID:</label>
+      <input type="text" id="id" name="id" /><br /><br />
+      <label for="attendance">Attendance:</label>
+      <select id="attendance" name="attendance">
+        <option value="present">Present</option>
+        <option value="absent">Absent</option></select
+      ><br /><br />
+      <button type="button" onclick="addRow()">Add to List</button>
+    </form>
+    <table id="attendanceTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Student ID</th>
+          <th>Attendance</th>
+          <!-- <th><input type="date" /></th> -->
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      function addRow() {
+        // Get the values from the form
+        const name = document.getElementById("name").value;
+        const id = document.getElementById("id").value;
+        const attendance = document.getElementById("attendance").value;
+
+        // Create a new row in the table
+        const table = document
+          .getElementById("attendanceTable")
+          .getElementsByTagName("tbody")[0];
+        const row = table.insertRow();
+
+        // Insert the data into the new row
+        const nameCell = row.insertCell(0);
+        const idCell = row.insertCell(1);
+        const attendanceCell = row.insertCell(2);
+
+        nameCell.innerHTML = name;
+        idCell.innerHTML = id;
+        attendanceCell.innerHTML = attendance;
+      }
+    </script>
+  </body>
+</html>

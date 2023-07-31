@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="checkbox" class="myCheckbox" />
+
+    <input type="checkbox" class="myCheckbox2" />
+
+    <input type="checkbox" class="myCheckbox3" />
+
+    <button onclick="asd()">click</button>
+
+    <script>
+      function asd() {
+        let myCheckbox = document.querySelector(".myCheckbox");
+        let myCheckbox2 = document.querySelector(".myCheckbox2");
+        let myCheckbox3 = document.querySelector(".myCheckbox3");
+        let total = "";
+
+        if (myCheckbox.checked) {
+          total++;
+        } else {
+          total;
+        }
+        if (myCheckbox2.checked) {
+          total++;
+        } else total;
+        if (myCheckbox3.checked) {
+          total++;
+        } else {
+          total;
+        }
+        console.log(total);
+      }
+    </script>
+  </body>
+</html>

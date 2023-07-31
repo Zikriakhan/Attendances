@@ -1,0 +1,67 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <button id="generate">Generate PDF</button>
+    <script>
+      // Get the button element
+      var button = document.getElementById("generate");
+
+      // Add a click event listener to the button
+      button.addEventListener("click", function () {
+        // Create a new jsPDF instance
+        var doc = new jsPDF({
+            orientation: "portrait",
+          unit: "mm",
+          format: "a4",
+          putOnlyUsedFonts: true,
+          compress: true,
+        });
+        
+        console.log("Zikri");
+        // Add some content to the PDF
+        doc.text("Hello, World!", 10, 10);
+
+        // Save the PDF
+        doc.save("example.pdf");
+      });
+    </script>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate PDF</title>
+</head>
+<body  id="#main1">
+  <button onclick="getPDF()">Generate PDF</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script>
+    // Get the button element
+    function getPDF() {
+      return html2canvas($('#main1'), {
+        background: "#ffffff",
+        onrendered: function (canvas) {
+          var myImage = canvas.toDataURL("image/jpeg,1.0");
+          var pdf = new jsPDF('p', 'mm', 'a4');
+          var width = pdf.internal.pageSize.width;
+          var height = pdf.internal.pageSize.height;
+          var h1 = 230;
+          var aspectwidth1 = (height) * (9 / 15);
+
+          pdf.addImage(myImage, 'png', 15, 2, aspectwidth1, (height - h1));
+
+          pdf.save(`ResponsivePDF ${$('.pdf-title').text()}.pdf`);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
